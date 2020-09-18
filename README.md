@@ -31,14 +31,15 @@ the container to avoid messy security issues. For compatability with
 the host machine, you can use your user and preferred group ids in the
 container, or if compatability is not an issue, you may simply create a new user:group identification for the container. To get your user and group id
 on the host (provided that you are working in a linux-like environment), use
-`id -u [user name]` and `id -g [group name]`.
+`id`.
 
 To create and run a container from the image, use
 `docker run -it --name dropbox_devel -u uid:gid -v
 /path/to/data/on/host:/path/to/data/in/the/container dropbox:1.0`,
-adding -v flags before the image name as necessary to provide any data mounts
-needed for the code to be able to access the necessary input data.
-Again, the `--name` is optional but makes the container easily locatable.
+adding -v flags before the image name as necessary to provide any data
+mounts needed for the code to be able to access the necessary output
+data and access token file. Again, the `--name` is optional but makes
+the container easily locatable.
 
 ### Entering the container
 The `-it` flag in the `docker build` command will start an interactive
